@@ -56,7 +56,7 @@ class SinglyLinkedList(object):
     >>> linkedlist.remove(2)
     Item  2  is removed from the list
     14
-    >>> linkedlist.__containts__(2)
+    >>> linkedlist.__contains__(2)
     False
     >>> linkedlist.display()
     '14 --> 23 --> 8 --> 4 '
@@ -64,7 +64,7 @@ class SinglyLinkedList(object):
     def __init__(self, head=None):
         super(SinglyLinkedList, self).__init__()
         self.head = head
-        pass
+
 
     def __len__(self):
         # Returns the length
@@ -74,16 +74,16 @@ class SinglyLinkedList(object):
             count += 1
             current = current.next
         return count
-        pass
+
 
     def __iter__(self):
         temp = self.head
         while temp:
             yield temp.item
             temp = temp.next
-        pass
 
-    def __containts__(self, item):
+
+    def __contains__(self, item):
         # Searches for the item
         current = self.head
         if current is None:
@@ -99,7 +99,7 @@ class SinglyLinkedList(object):
             return False
         else:
             return True
-        pass
+
 
     def containskeyvalue(self, key):
         # Search for the key and returns its value
@@ -114,7 +114,7 @@ class SinglyLinkedList(object):
             return "Item " + str(key) + " not in the list"
         else:
             return "Key is in the hash table with the value " + current.value
-        pass
+
 
     def remove(self, item):
         # finds item and removes it.
@@ -138,7 +138,7 @@ class SinglyLinkedList(object):
             previous.next = current.next
         print "Item ", item, " is removed from the list"
         return self.head
-        pass
+
 
     def prepend(self, item):
         # adds an item to the front of the list
@@ -146,7 +146,7 @@ class SinglyLinkedList(object):
         new_node.next = self.head
         self.head = new_node
         return self.head
-        pass
+
 
     def prependKeyValue(self, key, value):
         # adds (key,value) pair to the front of the list
@@ -155,9 +155,9 @@ class SinglyLinkedList(object):
         new_node.next = self.head
         self.head = new_node
         return self.head
-        pass
 
-    def __repr__(self):  # Sameer
+
+    def __repr__(self):
         s = "List:" + "->".join([item for item in self])
         print s
         return s
@@ -177,7 +177,7 @@ class SinglyLinkedList(object):
             current = current.next
         s = s[:-4]  # removing last 4 characters
         return s
-        pass
+
 
 
 class ChainedHashDict(object):
@@ -251,7 +251,7 @@ class ChainedHashDict(object):
                     self.__setitem__(current.item, current.value)
                     current = current.next
             count += 1
-        pass
+
 
     def __getitem__(self, key):
         # Gets the VALUE associated with key
@@ -261,7 +261,7 @@ class ChainedHashDict(object):
         linkedlist = SinglyLinkedList()
         linkedlist.head = self.Table[i]
         print linkedlist.containskeyvalue(key)
-        pass
+
 
     def __setitem__(self, key, value):
         # Inserts (key,value) pair
@@ -275,7 +275,7 @@ class ChainedHashDict(object):
         else:
             linkedlist.head = self.Table[i]
             self.Table[i] = linkedlist.prependKeyValue(key, value)
-        pass
+
 
     def __delitem__(self, key):
         # deletes a node with the given key
@@ -286,7 +286,7 @@ class ChainedHashDict(object):
         else:
             linkedlist.head = self.Table[i]
             self.Table[i] = linkedlist.remove(key)
-        pass
+
 
     def __contains__(self, key):
         # Searches Key
@@ -295,9 +295,9 @@ class ChainedHashDict(object):
         if self.Table[i] is None:
             return False
         linkedlist.head = self.Table[i]
-        ispresent = linkedlist.__containts__(key)
+        ispresent = linkedlist.__contains__(key)
         return ispresent
-        pass
+
 
     def __len__(self):
         # Computes number of occupied bins
@@ -310,7 +310,7 @@ class ChainedHashDict(object):
                 length += linkedlist.__len__()
             count += 1
         return length
-        pass
+
 
     def display(self):
         # Returns a string showing the table with multiple lines
@@ -836,7 +836,7 @@ def main():
 
     print '\n'
     print 'Does list contains 2? '
-    print linkedlist.__containts__(2)
+    print linkedlist.__contains__(2)
 
     print '\n'
 
