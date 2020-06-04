@@ -3,7 +3,7 @@ from collections import defaultdict
 
 '''
     The idea is similar to BFS except that we use priority queue to pick next visiting node based on the non-negative weight.
-    Time - E log E
+    Time - (E + V) log V: Queue can have max V number of entries. 
     Space - V + E
 '''
 class Dijkstras:
@@ -64,17 +64,3 @@ class Dijkstras:
 graph = [[2,1,3],[2,3,1],[3,4,1],[2,4,1], [5,6,1], [4,1,1]] # (u,v,w)
 d = Dijkstras()
 d.find_min_dist(2, graph, 6)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
