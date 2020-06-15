@@ -1,6 +1,8 @@
 from collections import defaultdict
 
 '''
+!!!Assumes no cycles!!!
+
 Uses dfs(). Add a node when its children are completely explored.
 Complexity:
     Time - O(V + E)
